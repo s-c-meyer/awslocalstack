@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Documentation</title>
+</head>
+<body>
+    <h2>myFlix API Documentation</h2>
+    <p>This is a backend "movie" application build using Node.js. This application will provide users with access to information about different movies, directors, and genres. Users will be able to sign up, update their personal information, and create list of their favorite movies. User authentication and authorization is implementated using JWT tokens.</p>
+    <table>
+        <thead>
+          <tr>
+            <th>Sl No</th>
+            <th class="req-col">Request</th>
+            <th>Endpoint Url</th>
+            <th>Method type</th>
+            <th class="req-col">Request data format</th>
+            <th class="req-col">Response data format</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>1</td>
+              <td>Return a list of all movies</td>
+              <td>/movies</td>
+              <td>GET</td>
+              <td>-</td>
+              <td>A JSON array holding data about movies</td>
+            </tr>    
+            <tr>
+              <td>2</td>
+              <td>Return data about a single movie by title</td>
+              <td>/movies/:Title</td>
+              <td>GET</td>
+              <td>-</td>
+              <td>A JSON object holding data about a single movie, containing the title, description, genre, director, image URL, whether it's featured or not. </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Return data about a genre by name/title</td>
+              <td>/movies/genre/:Name</td>
+              <td>GET</td>
+              <td>-</td>
+              <td>A JSON object holding movie data which matches genre name.</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Return data about a director by name</td>
+              <td>/directors/:Name</td>
+              <td>GET</td>
+              <td>-</td>
+              <td>A JSON object holding the name, bio, birthdate and death year of a director.</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Allow new users to register</td>
+              <td>/users</td>
+              <td>POST</td>
+              <td>
+                A JSON Object holding data about the new user.
+                <br>
+                <br>
+                <code>
+                  Example:
+                  <br>
+                    { <br>
+                      "Username": "user1", <br>
+                      "Password": "password1",<br>
+                      "Email": "user1@gmail.com"<br>
+                      "Birthday": "09/02/2000"<br>
+                    } <br>
+                </code>
+              </td>
+              <td>
+                A JSON Object holding data about the new user created, with an id.
+                <br>  
+                <br>            
+                <code>
+                  Example:
+                  <br>
+                  { <br>
+                    "_id": XXXXX,<br>
+                    "Username": "user1", <br>
+                    "Password": "password1",<br>
+                    "Email": "user1@gmail.com"<br>
+                    "Birthday": "09/02/2000"<br>
+                  } <br>
+                </code>
+              </td>
+            </tr>     
+            <tr>
+              <td>6</td>
+              <td>Allow users to update their user info</td>
+              <td>/users/:Username</td>
+              <td>PUT</td>
+              <td>A JSON Object holding data the user information along with field to update.</td>
+              <td>A JSON Object holding the user's updated data.</td>
+            </tr>      
+            <tr>
+              <td>7</td>
+              <td>Allow users to add a movie to their list of favorites </td>
+              <td>/users/:UserID/movies/:MovieID</td>
+              <td>POST</td>
+              <td>-</td>
+              <td>A JSON Object holding the user's updated favorite movie list.</td>
+            </tr>     
+            <tr>
+              <td>8</td>
+              <td>Allow users to remove a movie from their list of favorites</td>
+              <td>/users/:UserID/movies/:MovieID</td>
+              <td>DELETE</td>
+              <td>-</td>
+              <td>A JSON Object holding the user's altered favorite movie list.</td>
+            </tr>     
+            <tr>
+              <td>9</td>
+              <td>Allow existing user to deregister</td>
+              <td>/users/:Username</td>
+              <td>DELETE</td>
+              <td>-</td>
+              <td>A text message indicating whether the user was successfully deleted.</td>
+            </tr>
+          </tbody>
+    </table>
+  </body>
+</html>
